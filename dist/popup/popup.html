@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Productivity Assistant</title>
+  <link rel="stylesheet" href="popup-styles.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <div class="popup-header">
+      <div class="header-content">
+        <div class="logo">
+          <span class="logo-icon">🤖</span>
+          <span class="logo-text">AI Assistant</span>
+        </div>
+        <div class="status-indicator" id="status-indicator">
+          <span class="status-dot"></span>
+          <span class="status-text">Ready</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="section">
+      <h3 class="section-title">Quick Actions</h3>
+      <div class="quick-actions">
+        <button class="action-btn primary" id="toggle-assistant">
+          <span class="btn-icon">✨</span>
+          <span class="btn-text">Toggle Assistant</span>
+        </button>
+        <button class="action-btn" id="capture-screenshot">
+          <span class="btn-icon">📸</span>
+          <span class="btn-text">Screenshot</span>
+        </button>
+        <button class="action-btn" id="summarize-page">
+          <span class="btn-icon">📝</span>
+          <span class="btn-text">Summarize Page</span>
+        </button>
+        <button class="action-btn" id="generate-todo">
+          <span class="btn-icon">✅</span>
+          <span class="btn-text">Generate Todo</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- AI Model Status -->
+    <div class="section">
+      <h3 class="section-title">AI Model</h3>
+      <div class="model-status" id="model-status">
+        <div class="model-info">
+          <span class="model-name">WebLLM-Phi3</span>
+          <span class="model-size">2.4GB</span>
+        </div>
+        <div class="model-state">
+          <span class="loading-indicator" id="loading-indicator">Loading...</span>
+          <button class="load-btn" id="load-model">Load Model</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Statistics -->
+    <div class="section">
+      <h3 class="section-title">Today's Activity</h3>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number" id="interactions-count">0</span>
+          <span class="stat-label">Interactions</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" id="screenshots-count">0</span>
+          <span class="stat-label">Screenshots</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" id="todos-count">0</span>
+          <span class="stat-label">Todos</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" id="corrections-count">0</span>
+          <span class="stat-label">Corrections</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class="section">
+      <h3 class="section-title">Recent Activity</h3>
+      <div class="activity-list" id="activity-list">
+        <div class="activity-item">
+          <span class="activity-icon">📝</span>
+          <div class="activity-content">
+            <span class="activity-text">Text corrected on Gmail</span>
+            <span class="activity-time">2 minutes ago</span>
+          </div>
+        </div>
+        <div class="activity-item">
+          <span class="activity-icon">📸</span>
+          <div class="activity-content">
+            <span class="activity-text">Screenshot captured</span>
+            <span class="activity-time">5 minutes ago</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email Reports -->
+    <div class="section">
+      <h3 class="section-title">Email Reports</h3>
+      <div class="email-reports">
+        <div class="report-status" id="report-status">
+          <span class="report-text">Weekly reports disabled</span>
+          <button class="toggle-btn" id="toggle-reports">Enable</button>
+        </div>
+        <button class="action-btn secondary" id="send-report">
+          <span class="btn-icon">📧</span>
+          <span class="btn-text">Send Report Now</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="popup-footer">
+      <button class="footer-btn" id="open-dashboard">
+        <span class="btn-icon">📊</span>
+        <span class="btn-text">Dashboard</span>
+      </button>
+      <button class="footer-btn" id="open-settings">
+        <span class="btn-icon">⚙️</span>
+        <span class="btn-text">Settings</span>
+      </button>
+      <button class="footer-btn" id="open-help">
+        <span class="btn-icon">❓</span>
+        <span class="btn-text">Help</span>
+      </button>
+    </div>
+  </div>
+
+  <script src="popup-script.js"></script>
+</body>
+</html>
+

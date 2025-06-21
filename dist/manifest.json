@@ -1,0 +1,94 @@
+{
+  "manifest_version": 3,
+  "name": "AI Productivity Assistant",
+  "version": "1.0.0",
+  "description": "On-device AI assistant for productivity enhancement with smart features and activity reporting",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "tabs",
+    "scripting",
+    "contextMenus",
+    "notifications",
+    "identity",
+    "webNavigation",
+    "desktopCapture",
+    "offscreen"
+  ],
+  "host_permissions": [
+    "https://mail.google.com/*",
+    "https://docs.google.com/*",
+    "https://slack.com/*",
+    "https://notion.so/*",
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "background/service-worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/content-script.js"],
+      "css": ["content/content-styles.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "AI Productivity Assistant",
+    "default_icon": {
+      "16": "assets/icons/icon16.png",
+      "32": "assets/icons/icon32.png",
+      "48": "assets/icons/icon48.png",
+      "128": "assets/icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "32": "assets/icons/icon32.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "dashboard/*",
+        "assets/*",
+        "ai/*"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "commands": {
+    "toggle-assistant": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+A",
+        "mac": "Command+Shift+A"
+      },
+      "description": "Toggle AI assistant"
+    },
+    "quick-summarize": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S",
+        "mac": "Command+Shift+S"
+      },
+      "description": "Quick summarize selected text"
+    },
+    "grammar-check": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+G",
+        "mac": "Command+Shift+G"
+      },
+      "description": "Check grammar and improve text"
+    }
+  },
+  "oauth2": {
+    "client_id": "YOUR_GOOGLE_CLIENT_ID",
+    "scopes": [
+      "https://www.googleapis.com/auth/gmail.send",
+      "https://www.googleapis.com/auth/gmail.compose"
+    ]
+  }
+}
+

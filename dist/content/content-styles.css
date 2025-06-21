@@ -1,0 +1,305 @@
+/* Content Script Styles for AI Productivity Extension */
+
+.ai-assistant-panel {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.4;
+  color: #333;
+  background: #ffffff;
+  border: 1px solid #e1e5e9;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.ai-assistant-panel:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.ai-assistant-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ai-assistant-title {
+  font-weight: 600;
+  font-size: 16px;
+  margin: 0;
+}
+
+.ai-assistant-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.ai-assistant-close:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.ai-assistant-content {
+  padding: 16px;
+}
+
+.ai-assistant-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.ai-action-btn {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #495057;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.ai-action-btn:hover {
+  background: #e9ecef;
+  border-color: #dee2e6;
+  transform: translateY(-1px);
+}
+
+.ai-action-btn:active {
+  transform: translateY(0);
+}
+
+.ai-assistant-input {
+  margin-bottom: 16px;
+}
+
+.ai-assistant-input textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 12px;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  resize: vertical;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.ai-assistant-input textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.ai-process-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 8px;
+  width: 100%;
+  transition: all 0.2s ease;
+}
+
+.ai-process-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.ai-process-btn:active {
+  transform: translateY(0);
+}
+
+.ai-assistant-output {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #495057;
+  min-height: 40px;
+  max-height: 120px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+}
+
+.ai-assistant-output:empty::before {
+  content: "AI output will appear here...";
+  color: #adb5bd;
+  font-style: italic;
+}
+
+/* Enhancement button for input fields */
+.ai-enhance-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ai-enhance-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.ai-enhance-btn:active {
+  transform: scale(0.95);
+}
+
+/* Notification styles */
+.ai-notification {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  animation: slideInDown 0.3s ease, slideOutUp 0.3s ease 2.7s forwards;
+}
+
+.ai-notification-success {
+  background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.ai-notification-error {
+  background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3);
+}
+
+.ai-notification-info {
+  background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateX(-50%) translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutUp {
+  from {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-50%) translateY(-100%);
+    opacity: 0;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .ai-assistant-panel {
+    width: calc(100vw - 40px);
+    max-width: 350px;
+    right: 20px;
+    left: 20px;
+    margin: 0 auto;
+  }
+  
+  .ai-assistant-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .ai-assistant-panel {
+    background: #2d3748;
+    border-color: #4a5568;
+    color: #e2e8f0;
+  }
+  
+  .ai-assistant-input textarea {
+    background: #4a5568;
+    border-color: #718096;
+    color: #e2e8f0;
+  }
+  
+  .ai-assistant-input textarea::placeholder {
+    color: #a0aec0;
+  }
+  
+  .ai-action-btn {
+    background: #4a5568;
+    border-color: #718096;
+    color: #e2e8f0;
+  }
+  
+  .ai-action-btn:hover {
+    background: #718096;
+  }
+  
+  .ai-assistant-output {
+    background: #4a5568;
+    border-color: #718096;
+    color: #e2e8f0;
+  }
+  
+  .ai-assistant-output:empty::before {
+    color: #a0aec0;
+  }
+}
+
+/* Accessibility improvements */
+.ai-assistant-panel *:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+.ai-assistant-panel button:focus {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .ai-assistant-panel {
+    border: 2px solid #000000;
+  }
+  
+  .ai-action-btn,
+  .ai-process-btn {
+    border: 2px solid #000000;
+  }
+}
+
